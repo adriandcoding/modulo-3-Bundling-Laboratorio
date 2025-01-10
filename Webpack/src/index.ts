@@ -1,6 +1,7 @@
-import "./style.scss";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
 
-const app = document.getElementById("app");
-if (app) {
-  app.innerHTML = '<h1 class="titulo">Hello World</h1>';
-}
+const App = () => <h1>Hola Mundo</h1>;
+
+ReactDOM.render(<App />, document.getElementById("app"));
