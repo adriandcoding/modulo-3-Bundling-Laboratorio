@@ -40,8 +40,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public'), // Carpeta de origen
-          to: path.resolve(__dirname, 'dist'),    // Carpeta de destino
+          from: path.resolve(__dirname, 'public/images'), // Carpeta de origen
+          to: path.resolve(__dirname, 'dist/images'),    // Carpeta de destino
         },
       ],
     }),
@@ -50,7 +50,7 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9010,
+    port: 9000,
   },
   
   
