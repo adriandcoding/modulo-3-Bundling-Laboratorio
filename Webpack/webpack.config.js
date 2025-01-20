@@ -1,9 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 
 module.exports = {
   entry: './src/index.tsx',
@@ -45,13 +44,10 @@ module.exports = {
         },
       ],
     }),
-
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
   },
-  
-  
 };
