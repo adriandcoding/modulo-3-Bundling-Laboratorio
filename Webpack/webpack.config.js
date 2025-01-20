@@ -39,8 +39,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public/images'), // Carpeta de origen
-          to: path.resolve(__dirname, 'dist/images'),    // Carpeta de destino
+          from: path.resolve(__dirname, 'public/images'),
+          to: path.resolve(__dirname, 'dist/images'),    
         },
       ],
     }),
