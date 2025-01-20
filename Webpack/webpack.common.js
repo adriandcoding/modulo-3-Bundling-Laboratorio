@@ -43,4 +43,8 @@ module.exports = {
       ],
     }),
   ],
+  scripts: {
+    start: "webpack serve --config webpack.dev.js",
+    build: "webpack --config webpack.prod.js"
+  }
 };
