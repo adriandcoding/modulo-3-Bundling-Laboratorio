@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -35,19 +35,14 @@ module.exports = {
       template: './src/index.html',
     }),
     new Dotenv(),
-    new BundleAnalyzerPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, 'public/images'),
-          to: path.resolve(__dirname, 'dist/images'),    
+          to: 'images',
         },
       ],
     }),
+    new CleanWebpackPlugin(),
   ],
-  devServer: {
-    static: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 9000,
-  },
 };
