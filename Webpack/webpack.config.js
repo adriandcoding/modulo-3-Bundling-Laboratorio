@@ -2,6 +2,8 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
   entry: './src/index.tsx',
@@ -35,6 +37,14 @@ module.exports = {
     }),
     new Dotenv(),
     new BundleAnalyzerPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public'), // Carpeta de origen
+          to: path.resolve(__dirname, 'dist'),    // Carpeta de destino
+        },
+      ],
+    }),
 
   ],
   devServer: {
