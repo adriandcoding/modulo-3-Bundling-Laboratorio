@@ -6,11 +6,11 @@ const webpack = require('webpack');
 const dotenv = require('dotenv');
 const fs = require('fs');
 
-// Load .env.production file
+
 const envPath = path.resolve(__dirname, '.env.production');
 const fileEnv = dotenv.parse(fs.readFileSync(envPath));
 
-// Merge the environment variables with NODE_ENV set to 'production'
+
 const envKeys = {
   ...fileEnv,
   NODE_ENV: 'production',
